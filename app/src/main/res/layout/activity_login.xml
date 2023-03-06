@@ -6,14 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="com.example.chatkotlinapp.ui.register.RegisterViewModel" />
+            type="com.example.chatkotlinapp.ui.login.LoginViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_main"
-        android:fitsSystemWindows="true"
         tools:context=".ui.register.RegisterActivity">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -30,14 +29,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/create_account"
+                    android:text="@string/login"
                     android:textSize="21sp"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_register"
+        <include android:id="@+id/content"
+            layout="@layout/content_login"
             app:vm="@{vm}"
             />
 

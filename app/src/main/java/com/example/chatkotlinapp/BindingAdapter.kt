@@ -1,4 +1,4 @@
-package com.example.chatkotlinapp.ui
+package com.example.chatkotlinapp
 
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout

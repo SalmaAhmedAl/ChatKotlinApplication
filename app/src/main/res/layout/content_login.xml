@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.example.chatkotlinapp.ui.register.RegisterViewModel" />
+            type="com.example.chatkotlinapp.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,32 +25,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent=".28" />
 
-        <LinearLayout
-            android:id="@+id/user_name_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_guide_line">
 
-            <com.google.android.material.textfield.TextInputLayout
-                error="@{vm.userNameError}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <EditText
-                    android:id="@+id/user_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/user_name"
-                    android:inputType="textPersonName"
-                    android:text="@={vm.userName}" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/email_layout"
@@ -59,7 +34,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_name_layout">
+            app:layout_constraintTop_toBottomOf="@id/top_guide_line">
 
             <com.google.android.material.textfield.TextInputLayout
                 error="@{vm.emailError}"
@@ -106,50 +81,35 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/password_confirmation_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password_layout">
-
-            <com.google.android.material.textfield.TextInputLayout
-                error="@{vm.passwordConfirmationError}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <EditText
-                    android:id="@+id/password_confirmation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:hint="@string/password_confirmation"
-                    android:inputType="textPassword"
-                    android:text="@={vm.passwordConfirmation}" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
         <Button
-            android:id="@+id/register_btn"
+            android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
             android:drawableEnd="@drawable/icon_btn"
-            app:layout_constraintTop_toBottomOf="@id/password_confirmation_layout"
+            app:layout_constraintTop_toBottomOf="@id/password_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:onClick="@{()->vm.register()}"
+            android:onClick="@{()->vm.login()}"
             android:paddingHorizontal="32dp"
             android:paddingVertical="16dp"
-            android:text="@string/create_account"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/create_account_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/or_create_my_account"
+            app:layout_constraintTop_toBottomOf="@id/login_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="15sp"
+            android:textColor="@color/gray"
+            android:textAllCaps="false"
+            android:background="@color/transparent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
