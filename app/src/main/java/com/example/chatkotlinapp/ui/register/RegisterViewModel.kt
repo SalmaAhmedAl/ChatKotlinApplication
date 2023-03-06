@@ -1,7 +1,12 @@
 package com.example.chatkotlinapp.ui.register
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterViewModel:ViewModel() {
     val userName = ObservableField<String>()
@@ -12,10 +17,27 @@ class RegisterViewModel:ViewModel() {
     val passwordError = ObservableField<String?>()
     val passwordConfirmation = ObservableField<String>()
     val passwordConfirmationError = ObservableField<String?>()
-    fun register(){
-    if(!validateForm())return
+
+    val auth= FirebaseAuth.getInstance()
+    var navigator:Navigator ?=null
+    fun register() {
+        if (!validateForm()) return
+        navigator?.showLoading("Loading...")
+        auth.createUserWithEmailAndPassword(
+            email.get()!!, password.get()!!
+        )
+            .addOnCompleteListener { task ->
+                navigator?.hideDialogue()
+                if (task.isSuccessful) {
+                    navigator?.showMessage("Successful registration")
+                    //Log.e("userId",task.result.user?.uid?:"")
+                }else{
+                   // Log.e("error",task.exception?.localizedMessage?:"")
+                    navigator?.showMessage(task.exception?.localizedMessage?:"")
+                }
+            }
     }
-  var isValid=true
+    var isValid=true
     fun validateForm():Boolean{
         isValid=true
         if(userName.get().isNullOrBlank()){
