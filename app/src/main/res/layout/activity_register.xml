@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.example.chatkotlinapp.ui.register.RegisterViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,7 +36,9 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_register" />
+        <include layout="@layout/content_register"
+            app:vm="@{vm}"
+            />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
