@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.chatkotlinapp.databinding.ActivitySplashBinding
-import com.example.chatkotlinapp.ui.registration.RegistrationActivity
+import com.example.chatkotlinapp.ui.register.RegisterActivity
 
 class SplashActivity : AppCompatActivity() {
     lateinit var viewBinding : ActivitySplashBinding
@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         with(viewBinding.logo) {
             alpha=0f
             animate().setDuration(1500).alpha(1f).withEndAction{
-                    val intent = Intent(this@SplashActivity, RegistrationActivity::class.java)
+                    val intent = Intent(this@SplashActivity, RegisterActivity::class.java)
                     startActivity(intent)
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
 

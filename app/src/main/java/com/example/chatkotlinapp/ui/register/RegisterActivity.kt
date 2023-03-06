@@ -1,12 +1,12 @@
-package com.example.chatkotlinapp.ui.registration
+package com.example.chatkotlinapp.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.chatkotlinapp.R
 
-class RegistrationActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_regestration)
+        setContentView(R.layout.activity_register)
     }
 }
