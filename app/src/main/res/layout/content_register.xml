@@ -131,6 +131,15 @@
                     android:text="@={vm.passwordConfirmation}" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:text="@string/already_have_an_account"
+                android:onClick="@{()->vm.gotoLogin()}"
+                />
+
 
         </LinearLayout>
         <Button

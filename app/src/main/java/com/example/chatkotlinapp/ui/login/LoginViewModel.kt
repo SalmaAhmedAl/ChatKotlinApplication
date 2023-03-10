@@ -1,17 +1,33 @@
 package com.example.chatkotlinapp.ui.login
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.ViewModel
+import com.example.chatkotlinapp.base.BaseNavigator
+import com.example.chatkotlinapp.base.BaseViewModel
+import com.google.firebase.auth.FirebaseAuth
 
-class LoginViewModel : ViewModel() {
+
+class LoginViewModel : BaseViewModel<NavigatorLogin>() {
 
     val email = ObservableField<String>()
     val emailError = ObservableField<String?>()
     val password = ObservableField<String>()
     val passwordError = ObservableField<String?>()
+    val auth =FirebaseAuth.getInstance()
 
     fun login() {
         if (!validateForm()) return
+        navigator?.showLoading("Loading...")
+        auth.signInWithEmailAndPassword(
+            email.get()!!,
+            password.get()!!
+        ).addOnCompleteListener{task->
+            if(task.isSuccessful){
+                navigator?.showMessage(task.result.user?.uid?:"")
+            }else{
+                navigator?.showMessage(task.exception?.localizedMessage?:"")
+            }
+
+        }
     }
 
     var isValid = true
@@ -43,6 +59,10 @@ class LoginViewModel : ViewModel() {
 
 
         return true
+    }
+
+    fun gotoRegister(){
+        navigator?.gotoRegister()
     }
 
 }

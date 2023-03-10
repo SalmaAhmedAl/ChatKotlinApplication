@@ -102,13 +102,14 @@
             android:id="@+id/create_account_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/or_create_my_account"
+            android:text="@string/don_t_have_an_account"
             app:layout_constraintTop_toBottomOf="@id/login_btn"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="15sp"
             android:textColor="@color/gray"
             android:textAllCaps="false"
             android:background="@color/transparent"
+            android:onClick="@{()->vm.gotoRegister()}"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

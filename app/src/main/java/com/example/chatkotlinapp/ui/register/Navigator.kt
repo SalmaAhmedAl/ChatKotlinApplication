@@ -1,10 +1,9 @@
 package com.example.chatkotlinapp.ui.register
 
-import android.os.Message
+import com.example.chatkotlinapp.base.BaseNavigator
 
-interface Navigator {
+interface Navigator:BaseNavigator {
+    fun goHome()
+    fun gotoLogin()
 
-    fun showLoading(message: String)
-    fun showMessage(message: String)
-    fun hideDialogue()
 }
